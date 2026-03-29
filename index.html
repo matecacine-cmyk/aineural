@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AiNeural — Ecossistema Digital</title>
+  <meta name="description" content="Um ecossistema de projetos digitais inteligentes. Streaming, domínios, e muito mais.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+
+<!-- ─── Canvas neural background ─────────────────────────────────────────── -->
+<canvas id="neural-canvas"></canvas>
+
+<!-- ─── Header ───────────────────────────────────────────────────────────── -->
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="#">
+      <span class="logo-icon">⬡</span>
+      AI<strong>NEURAL</strong>
+    </a>
+    <nav>
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ─── Mobile Nav ────────────────────────────────────────────────────────── -->
+<div class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobile-nav').classList.remove('open')">✕</button>
+  <a href="#projetos" onclick="document.getElementById('mobile-nav').classList.remove('open')">Projetos</a>
+  <a href="#sobre" onclick="document.getElementById('mobile-nav').classList.remove('open')">Sobre</a>
+  <a href="#contacto" onclick="document.getElementById('mobile-nav').classList.remove('open')">Contacto</a>
+</div>
+
+<!-- ─── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-tag">Ecossistema Digital</div>
+    <h1>Construindo o futuro<br><span class="gradient-text">projeto a projeto</span></h1>
+    <p>Um portfólio de produtos digitais inteligentes — do entretenimento ao hosting, cada projeto resolve um problema real.</p>
+    <a href="#projetos" class="btn-primary">Ver Projetos</a>
+  </div>
+</section>
+
+<!-- ─── Stats ─────────────────────────────────────────────────────────────── -->
+<section class="stats-bar">
+  <div class="container stats-inner">
+    <div class="stat-item">
+      <strong id="count-projects">0</strong>
+      <span>Projetos Ativos</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <strong id="count-domains">0</strong>
+      <span>Domínios</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <strong id="count-users">0</strong>
+      <span>Utilizadores</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <strong>2025</strong>
+      <span>Fundado em</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Projetos ──────────────────────────────────────────────────────────── -->
+<section class="projects" id="projetos">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Portfólio</div>
+      <h2>Os nossos projetos</h2>
+      <p>Cada projeto é uma solução autónoma, construída para crescer</p>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- Emergent -->
+      <div class="project-card" data-status="live">
+        <div class="project-header">
+          <div class="project-icon" style="background: linear-gradient(135deg,#8B5CF6,#EC4899)">🎬</div>
+          <div class="project-status live">Ativo</div>
+        </div>
+        <h3>Emergent</h3>
+        <p class="project-tagline">Streaming · Filmes &amp; Séries</p>
+        <p class="project-desc">Plataforma de streaming gratuita com milhares de filmes, séries e anime. Design moderno, PWA instalável, 7 servidores de vídeo.</p>
+        <div class="project-tags">
+          <span>Streaming</span>
+          <span>PWA</span>
+          <span>TMDB API</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://emergent.fit" target="_blank" class="btn-project">Visitar →</a>
+          <span class="project-domain">emergent.fit</span>
+        </div>
+      </div>
+
+      <!-- Roniai -->
+      <div class="project-card" data-status="live">
+        <div class="project-header">
+          <div class="project-icon" style="background: linear-gradient(135deg,#6366F1,#06B6D4)">🌐</div>
+          <div class="project-status live">Ativo</div>
+        </div>
+        <h3>Roniai</h3>
+        <p class="project-tagline">Domínios &amp; Hosting</p>
+        <p class="project-desc">Plataforma de comparação e registo de domínios. Encontra o melhor preço para o teu domínio e hosting com afiliados Namecheap.</p>
+        <div class="project-tags">
+          <span>Afiliados</span>
+          <span>Domínios</span>
+          <span>Namecheap</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://roniai.online" target="_blank" class="btn-project">Visitar →</a>
+          <span class="project-domain">roniai.online</span>
+        </div>
+      </div>
+
+      <!-- Em breve 1 -->
+      <div class="project-card" data-status="soon">
+        <div class="project-header">
+          <div class="project-icon" style="background: linear-gradient(135deg,#F59E0B,#EF4444)">🐾</div>
+          <div class="project-status soon">Em breve</div>
+        </div>
+        <h3>PetVibe</h3>
+        <p class="project-tagline">Pets &amp; Animais</p>
+        <p class="project-desc">Plataforma dedicada a donos de animais de estimação. Produtos, dicas e comunidade para amantes de pets.</p>
+        <div class="project-tags">
+          <span>E-commerce</span>
+          <span>Comunidade</span>
+        </div>
+        <div class="project-footer">
+          <span class="btn-project coming">Em Desenvolvimento</span>
+          <span class="project-domain">petvibe.space</span>
+        </div>
+      </div>
+
+      <!-- Em breve 2 -->
+      <div class="project-card" data-status="soon">
+        <div class="project-header">
+          <div class="project-icon" style="background: linear-gradient(135deg,#10B981,#3B82F6)">📰</div>
+          <div class="project-status soon">Em breve</div>
+        </div>
+        <h3>E1News</h3>
+        <p class="project-tagline">Notícias &amp; Media</p>
+        <p class="project-desc">Portal de notícias tecnológicas e digitais, com foco em IA, startups e inovação digital.</p>
+        <div class="project-tags">
+          <span>Notícias</span>
+          <span>IA</span>
+          <span>Tech</span>
+        </div>
+        <div class="project-footer">
+          <span class="btn-project coming">Em Desenvolvimento</span>
+          <span class="project-domain">e1news.online</span>
+        </div>
+      </div>
+
+      <!-- Em breve 3 -->
+      <div class="project-card" data-status="soon">
+        <div class="project-header">
+          <div class="project-icon" style="background: linear-gradient(135deg,#8B5CF6,#3B82F6)">🏗️</div>
+          <div class="project-status soon">Em breve</div>
+        </div>
+        <h3>BuildAI</h3>
+        <p class="project-tagline">Ferramentas de IA</p>
+        <p class="project-desc">Suite de ferramentas inteligentes para criadores e empreendedores digitais. Automatiza, cria e escala.</p>
+        <div class="project-tags">
+          <span>IA</span>
+          <span>SaaS</span>
+          <span>Automação</span>
+        </div>
+        <div class="project-footer">
+          <span class="btn-project coming">Em Desenvolvimento</span>
+          <span class="project-domain">buildai.fit</span>
+        </div>
+      </div>
+
+      <!-- Novo projeto -->
+      <div class="project-card new-project">
+        <div class="new-project-inner">
+          <div class="new-icon">+</div>
+          <h3>Próximo Projeto</h3>
+          <p>Sempre a construir algo novo. Fica atento.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Sobre ───────────────────────────────────────────────────────────────── -->
+<section class="about" id="sobre">
+  <div class="container about-inner">
+    <div class="about-text">
+      <div class="section-tag">Sobre</div>
+      <h2>Uma mente,<br>múltiplos projetos</h2>
+      <p>A AiNeural é um ecossistema de projetos digitais construído por um empreendedor apaixonado por tecnologia e IA. Cada projeto nasce de uma ideia simples: resolver um problema real de forma elegante.</p>
+      <p>De plataformas de streaming a ferramentas de IA, passando por portais de domínios — construímos, lançamos e fazemos crescer.</p>
+      <div class="about-values">
+        <div class="value">
+          <span class="value-icon">⚡</span>
+          <div>
+            <strong>Velocidade</strong>
+            <p>De ideia a produto em dias, não meses.</p>
+          </div>
+        </div>
+        <div class="value">
+          <span class="value-icon">🎯</span>
+          <div>
+            <strong>Foco</strong>
+            <p>Cada projeto tem um propósito claro.</p>
+          </div>
+        </div>
+        <div class="value">
+          <span class="value-icon">🤖</span>
+          <div>
+            <strong>Inteligência</strong>
+            <p>IA como ferramenta central em tudo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="orbit-container">
+        <div class="orbit-center">AI</div>
+        <div class="orbit orbit-1">
+          <div class="orbit-dot" style="background:linear-gradient(135deg,#8B5CF6,#EC4899)">🎬</div>
+        </div>
+        <div class="orbit orbit-2">
+          <div class="orbit-dot" style="background:linear-gradient(135deg,#6366F1,#06B6D4)">🌐</div>
+        </div>
+        <div class="orbit orbit-3">
+          <div class="orbit-dot" style="background:linear-gradient(135deg,#10B981,#3B82F6)">📰</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Contacto ───────────────────────────────────────────────────────────── -->
+<section class="contact" id="contacto">
+  <div class="container contact-inner">
+    <div class="section-tag">Contacto</div>
+    <h2>Tens uma ideia?</h2>
+    <p>Estamos sempre abertos a colaborações, parcerias e novas oportunidades.</p>
+    <a href="mailto:hello@aineural.online" class="btn-primary btn-lg">hello@aineural.online</a>
+  </div>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <span class="footer-logo">AI<strong>NEURAL</strong></span>
+      <p>Ecossistema de projetos digitais inteligentes.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://emergent.fit" target="_blank">Emergent</a>
+      <a href="https://roniai.online" target="_blank">Roniai</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> AiNeural. Todos os projetos são propriedade dos respetivos criadores.</p>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

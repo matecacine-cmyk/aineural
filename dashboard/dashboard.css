@@ -274,6 +274,43 @@ canvas.chart { width: 100%; display: block; }
 /* ─── Full-width chart ────────────────────────────────────────────────────── */
 .chart-full { grid-column: 1 / -1; }
 
+/* ─── Welcome Banner ─────────────────────────────────────────────────────── */
+.welcome-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg2); border: 1px solid rgba(129,140,248,0.2);
+  border-radius: var(--radius); padding: 20px 24px;
+  margin-bottom: 24px; gap: 20px; flex-wrap: wrap;
+  background-image: linear-gradient(135deg, rgba(129,140,248,0.05) 0%, rgba(34,211,238,0.03) 100%);
+}
+.welcome-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.welcome-sub { font-size: 0.82rem; color: var(--text2); }
+.welcome-right { display: flex; gap: 28px; flex-shrink: 0; }
+.welcome-stat { text-align: center; }
+.welcome-stat strong { display: block; font-size: 1.4rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.welcome-stat span { font-size: 0.72rem; color: var(--text3); }
+
+/* ─── Checklist ───────────────────────────────────────────────────────────── */
+.checklist { display: flex; flex-direction: column; }
+.checklist-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 22px; border-bottom: 1px solid rgba(255,255,255,0.03);
+  transition: background var(--transition);
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item:hover { background: rgba(255,255,255,0.015); }
+.checklist-item.done { opacity: 0.6; }
+.checklist-icon { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+.checklist-body { flex: 1; }
+.checklist-body strong { display: block; font-size: 0.85rem; margin-bottom: 2px; }
+.checklist-body span { font-size: 0.75rem; color: var(--text3); }
+.checklist-link {
+  font-size: 0.75rem; color: var(--primary);
+  border: 1px solid rgba(129,140,248,0.3); padding: 3px 10px;
+  border-radius: 6px; white-space: nowrap;
+  transition: all var(--transition); flex-shrink: 0;
+}
+.checklist-link:hover { background: rgba(129,140,248,0.1); }
+
 /* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 1200px) {
   .kpi-grid { grid-template-columns: repeat(2, 1fr); }

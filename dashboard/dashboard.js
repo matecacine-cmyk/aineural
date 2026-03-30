@@ -42,20 +42,20 @@ const DATA = {
       icon: '🎬',
       color: 'linear-gradient(135deg,#8B5CF6,#EC4899)',
       status: 'live',
-      users: 1847,
-      sessions: 12430,
-      pageviews: 38900,
-      bounceRate: 42,
-      avgSession: '3m 24s',
-      revenue: {
-        total: 312.80,
-        ads: 218.40,       // Google AdSense / ads.txt
-        kofi: 47.00,
-        amazon: 38.20,
-        subscriptions: 9.20,
-      },
-      monthly: [18,24,31,29,38,42,55,61,48,72,89,76,94,88,102,119,108,124,138,112,143,156,148,162,174,185,169,192,201,213],
-      revenueMonthly: [8.2,11.4,15.6,13.8,19.2,22.1,28.4,31.2,24.6,36.8,45.2,38.9,47.8,44.1,52.6,60.4,55.2,63.8,70.1,57.2,72.9,79.6,75.2,82.4,88.6,94.2,86.0,97.8,102.4,108.2],
+      users: 0,
+      sessions: 0,
+      pageviews: 0,
+      bounceRate: 0,
+      avgSession: '—',
+      revenue: { total: 0, ads: 0, kofi: 0, amazon: 0 },
+      monthly: Array(30).fill(0),
+      revenueMonthly: Array(30).fill(0),
+      // Monetização disponível
+      monetization: [
+        { name: 'Google AdSense', status: 'pendente', icon: '📢', desc: 'Submete o site para aprovação em adsense.google.com' },
+        { name: 'Amazon Associates', status: 'pendente', icon: '📦', desc: 'Adiciona links de afiliado (ID: emergent0de-20)' },
+        { name: 'Ko-fi', status: 'ativo', icon: '☕', desc: 'ko-fi.com/emergent — já integrado no site' },
+      ],
     },
     {
       id: 'roniai',
@@ -64,21 +64,18 @@ const DATA = {
       icon: '🌐',
       color: 'linear-gradient(135deg,#6366F1,#06B6D4)',
       status: 'live',
-      users: 312,
-      sessions: 1840,
-      pageviews: 4620,
-      bounceRate: 61,
-      avgSession: '1m 52s',
-      revenue: {
-        total: 78.40,
-        ads: 12.60,
-        kofi: 0,
-        amazon: 0,
-        namecheap: 58.80,
-        subscriptions: 7.00,
-      },
-      monthly: [4,6,9,8,12,14,18,16,22,28,24,31,27,35,30,38,33,42,36,44,39,48,43,52,46,56,49,60,54,63],
-      revenueMonthly: [1.2,1.8,2.6,2.2,3.4,4.0,5.2,4.6,6.4,8.2,7.0,9.0,7.8,10.2,8.6,11.0,9.4,12.2,10.4,12.8,11.2,13.8,12.4,15.0,13.2,16.2,14.2,17.4,15.6,18.8],
+      users: 0,
+      sessions: 0,
+      pageviews: 0,
+      bounceRate: 0,
+      avgSession: '—',
+      revenue: { total: 0, ads: 0, namecheap: 0 },
+      monthly: Array(30).fill(0),
+      revenueMonthly: Array(30).fill(0),
+      monetization: [
+        { name: 'Namecheap Afiliado', status: 'pendente', icon: '🌐', desc: 'Aguarda aprovação Impact — substitui AFFILIATE_ID no código' },
+        { name: 'Google AdSense', status: 'pendente', icon: '📢', desc: 'Submete roniai.online ao AdSense' },
+      ],
     },
     {
       id: 'buildai',
@@ -87,35 +84,39 @@ const DATA = {
       icon: '🏗️',
       color: 'linear-gradient(135deg,#16a34a,#eab308)',
       status: 'live',
-      users: 89,
-      sessions: 420,
-      pageviews: 1980,
-      bounceRate: 34,
-      avgSession: '5m 12s',
-      revenue: {
-        total: 124.70,
-        ads: 0,
-        kofi: 0,
-        amazon: 0,
-        subscriptions: 124.70,  // Pro + Business
-        pro: 79.92,   // 8x €9.99
-        business: 44.78, // 2x €24.99 (trial adjustment)
-      },
-      monthly: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,4,6,9,14,18,24,32,38],
-      revenueMonthly: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4.98,9.96,14.94,24.87,34.83,49.77,64.68,89.55,124.70],
+      users: 0,
+      sessions: 0,
+      pageviews: 0,
+      bounceRate: 0,
+      avgSession: '—',
+      revenue: { total: 0, subscriptions: 0, pro: 0, business: 0 },
+      monthly: Array(30).fill(0),
+      revenueMonthly: Array(30).fill(0),
+      monetization: [
+        { name: 'Subscrições Pro (€9,99/mês)', status: 'ativo', icon: '💳', desc: 'Sistema de planos já implementado' },
+        { name: 'Subscrições Business (€24,99/mês)', status: 'ativo', icon: '💳', desc: 'Sistema de planos já implementado' },
+        { name: 'Stripe / Pagamentos', status: 'pendente', icon: '💰', desc: 'Integra Stripe para aceitar pagamentos reais' },
+      ],
     },
   ],
 
   affiliates: [
-    { name: 'Namecheap', icon: '🌐', platform: 'Impact', earned: 58.80, clicks: 412, conversions: 14, rate: 3.4, color: '#06B6D4' },
-    { name: 'Amazon', icon: '📦', platform: 'Associates', earned: 38.20, clicks: 891, conversions: 23, rate: 2.6, color: '#F59E0B' },
-    { name: 'Ko-fi', icon: '☕', platform: 'Ko-fi', earned: 47.00, clicks: 634, conversions: 19, rate: 3.0, color: '#FF5E5B' },
+    { name: 'Namecheap', icon: '🌐', platform: 'Impact', earned: 0, clicks: 0, conversions: 0, rate: 0, color: '#06B6D4', status: 'pendente' },
+    { name: 'Amazon', icon: '📦', platform: 'Associates', earned: 0, clicks: 0, conversions: 0, rate: 0, color: '#F59E0B', status: 'pendente' },
+    { name: 'Ko-fi', icon: '☕', platform: 'Ko-fi', earned: 0, clicks: 0, conversions: 0, rate: 0, color: '#FF5E5B', status: 'ativo' },
   ],
 
   adNetworks: [
-    { name: 'Google AdSense', icon: '📢', site: 'Emergent', rpm: 1.82, impressions: 120000, earned: 218.40 },
-    { name: 'Google AdSense', icon: '📢', site: 'Roniai', rpm: 0.98, impressions: 12857, earned: 12.60 },
+    { name: 'Google AdSense', icon: '📢', site: 'Emergent', rpm: 0, impressions: 0, earned: 0, status: 'pendente' },
+    { name: 'Google AdSense', icon: '📢', site: 'Roniai', rpm: 0, impressions: 0, earned: 0, status: 'pendente' },
   ],
+
+  // Objetivos mensais
+  goals: {
+    revenue: 100,      // €100/mês — primeiro objetivo
+    users: 500,
+    sessions: 2000,
+  },
 };
 
 // ─── Totals ──────────────────────────────────────────────────────────────────
@@ -414,152 +415,144 @@ const Pages = {};
 Pages.overview = function() {
   const main = document.getElementById('dash-main');
   main.innerHTML = '';
-  const n = DATA.period;
 
-  // KPI cards
+  // ── Welcome banner ────────────────────────────────────────────────────────
+  main.innerHTML += `
+    <div class="welcome-banner">
+      <div class="welcome-left">
+        <div class="welcome-title">Bem-vindo ao teu ecossistema 👋</div>
+        <div class="welcome-sub">3 projetos ativos. Os dados vão aparecer aqui assim que tiveres tráfego e monetização configurada.</div>
+      </div>
+      <div class="welcome-right">
+        <div class="welcome-stat"><strong>3</strong><span>Projetos</span></div>
+        <div class="welcome-stat"><strong>9</strong><span>Domínios</span></div>
+        <div class="welcome-stat"><strong>2025</strong><span>Fundado</span></div>
+      </div>
+    </div>`;
+
+  // ── KPI cards com objetivos ───────────────────────────────────────────────
   const kpiGrid = el('div', 'kpi-grid');
-  const kpis = [
-    { label: 'Receita Total', value: fmt.currency(DATA.totals.revenue), change: '+23%', up: true, sub: 'últimos ' + n + ' dias', icon: '💶' },
-    { label: 'Utilizadores', value: fmt.num(DATA.totals.users), change: '+18%', up: true, sub: 'sessões: ' + fmt.num(DATA.totals.sessions), icon: '👥' },
-    { label: 'Pageviews', value: fmt.num(DATA.totals.pageviews), change: '+31%', up: true, sub: '3 sites ativos', icon: '📄' },
-    { label: 'Projetos Ativos', value: '3', change: '+1', up: true, sub: 'Emergent · Roniai · BuildAI', icon: '🚀' },
-  ];
-  kpis.forEach(k => {
+  const revPct = DATA.totals.revenue > 0 ? Math.min(100, Math.round((DATA.totals.revenue / DATA.goals.revenue) * 100)) : 0;
+  const usersPct = DATA.totals.users > 0 ? Math.min(100, Math.round((DATA.totals.users / DATA.goals.users) * 100)) : 0;
+  [
+    { label: 'Receita Este Mês', value: fmt.currency(DATA.totals.revenue), sub: `Objetivo: ${fmt.currency(DATA.goals.revenue)}`, pct: revPct, icon: '💶' },
+    { label: 'Utilizadores', value: fmt.num(DATA.totals.users), sub: `Objetivo: ${fmt.num(DATA.goals.users)}`, pct: usersPct, icon: '👥' },
+    { label: 'Sessões', value: fmt.num(DATA.totals.sessions), sub: `Objetivo: ${fmt.num(DATA.goals.sessions)}`, pct: Math.min(100, Math.round((DATA.totals.sessions/DATA.goals.sessions)*100)), icon: '🖥️' },
+    { label: 'Projetos Ativos', value: '3', sub: 'Emergent · Roniai · BuildAI', pct: null, icon: '🚀' },
+  ].forEach(k => {
     kpiGrid.innerHTML += `
       <div class="kpi-card">
         <div class="kpi-icon">${k.icon}</div>
         <div class="kpi-label">${k.label}</div>
         <div class="kpi-value">${k.value}</div>
-        <div class="kpi-meta">
-          <span class="kpi-change ${k.up ? 'up' : 'down'}">${k.change}</span>
-          <span class="kpi-sub">${k.sub}</span>
-        </div>
+        ${k.pct !== null ? `
+          <div style="margin:8px 0 4px">
+            <div class="progress-bar"><div class="progress-fill" style="width:${k.pct}%"></div></div>
+          </div>` : ''}
+        <div class="kpi-sub">${k.sub}</div>
       </div>`;
   });
   main.appendChild(kpiGrid);
 
-  // Charts row — revenue line + donut
-  const row1 = el('div', 'charts-row');
+  // ── Próximos passos checklist ─────────────────────────────────────────────
+  const checkCard = el('div', 'table-card');
+  checkCard.innerHTML = `
+    <div class="table-card-header">
+      <h3>Próximos Passos para Monetizar</h3>
+      <span class="table-tag">Checklist</span>
+    </div>
+    <div class="checklist">
+      ${[
+        { done: true,  icon: '✅', text: 'Emergent lançado', sub: 'emergent.fit está online' },
+        { done: true,  icon: '✅', text: 'Roniai lançado', sub: 'roniai.online está online' },
+        { done: true,  icon: '✅', text: 'BuildAI lançado', sub: 'buildai.fit está online com planos pagos' },
+        { done: true,  icon: '✅', text: 'Ko-fi integrado', sub: 'ko-fi.com/emergent — botão no site' },
+        { done: false, icon: '⬜', text: 'Submeter ao Google AdSense', sub: 'adsense.google.com → Adicionar site → emergent.fit', link: 'https://adsense.google.com' },
+        { done: false, icon: '⬜', text: 'Aguardar aprovação Namecheap (Impact)', sub: 'Depois de aprovado, substitui AFFILIATE_ID no código do Roniai', link: null },
+        { done: false, icon: '⬜', text: 'Integrar Stripe no BuildAI', sub: 'Para aceitar pagamentos reais dos planos Pro e Business', link: 'https://stripe.com' },
+        { done: false, icon: '⬜', text: 'Adicionar Google Analytics', sub: 'Instala GA4 nos 3 sites para tracking real', link: 'https://analytics.google.com' },
+        { done: false, icon: '⬜', text: 'Criar conteúdo para SEO', sub: 'Artigos sobre streaming, domínios e construção para atrair tráfego orgânico', link: null },
+        { done: false, icon: '⬜', text: 'Partilhar os projetos nas redes sociais', sub: 'Twitter/X, Reddit (r/portugal, r/webdev), grupos de Facebook', link: null },
+      ].map(item => `
+        <div class="checklist-item ${item.done ? 'done' : ''}">
+          <span class="checklist-icon">${item.icon}</span>
+          <div class="checklist-body">
+            <strong>${item.text}</strong>
+            <span>${item.sub}</span>
+          </div>
+          ${item.link ? `<a href="${item.link}" target="_blank" class="checklist-link">Abrir →</a>` : ''}
+        </div>`).join('')}
+    </div>`;
+  main.appendChild(checkCard);
 
-  // Revenue line chart
-  const lineCard = el('div', 'chart-card');
-  lineCard.innerHTML = `<div class="chart-title">Receita por Projeto</div><div class="chart-subtitle">Acumulada nos últimos ${n} dias</div>`;
-  const lineCanvas = document.createElement('canvas');
-  lineCanvas.className = 'chart';
-  lineCard.appendChild(lineCanvas);
-  row1.appendChild(lineCard);
-
-  // Revenue donut
-  const donutCard = el('div', 'chart-card');
-  donutCard.innerHTML = `<div class="chart-title">Receita por Fonte</div><div class="chart-subtitle">Distribuição total</div>`;
-  const donutWrap = el('div', '', '<div style="display:flex;justify-content:center;margin:8px 0"><canvas id="main-donut"></canvas></div>');
-  donutCard.appendChild(donutWrap);
-
-  const totalRev = DATA.totals.revenue;
-  const totalAds = DATA.projects.reduce((s, p) => s + (p.revenue.ads || 0), 0);
-  const totalAff = DATA.affiliates.reduce((s, a) => s + a.earned, 0) - DATA.projects.reduce((s,p) => s + (p.revenue.kofi||0), 0);
-  const totalSubs = DATA.projects.reduce((s, p) => s + (p.revenue.subscriptions || 0), 0);
-  const totalKofi = DATA.projects.reduce((s, p) => s + (p.revenue.kofi || 0), 0);
-
-  const donutSegs = [
-    { label: 'Anúncios', value: totalAds, color: '#818CF8' },
-    { label: 'Afiliados', value: totalAff, color: '#22D3EE' },
-    { label: 'Subscrições', value: totalSubs, color: '#10B981' },
-    { label: 'Ko-fi', value: totalKofi, color: '#FF5E5B' },
-  ];
-  const legendHtml = donutSegs.map(s => `
-    <div class="donut-legend-item">
-      <div class="donut-legend-label"><div class="donut-dot" style="background:${s.color}"></div>${s.label}</div>
-      <div class="donut-legend-val">${fmt.currency(s.value)}</div>
-    </div>`).join('');
-  donutCard.innerHTML += `<div class="donut-legend">${legendHtml}</div>`;
-  row1.appendChild(donutCard);
-  main.appendChild(row1);
-
-  // Charts row 2 — traffic bars per project
+  // ── Projetos com estado de monetização ───────────────────────────────────
   const row2 = el('div', 'charts-row2');
   DATA.projects.forEach(p => {
     const c = el('div', 'chart-card');
+    const doneCount = p.monetization.filter(m => m.status === 'ativo').length;
     c.innerHTML = `
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-        <div style="width:28px;height:28px;border-radius:7px;background:${p.color};display:flex;align-items:center;justify-content:center;font-size:0.9rem">${p.icon}</div>
-        <div>
-          <div class="chart-title" style="margin:0">${p.name}</div>
-          <div class="chart-subtitle" style="margin:0">${p.domain}</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <div style="width:36px;height:36px;border-radius:10px;background:${p.color};display:flex;align-items:center;justify-content:center;font-size:1.1rem">${p.icon}</div>
+        <div style="flex:1">
+          <strong style="display:block">${p.name}</strong>
+          <span style="font-size:0.72rem;color:var(--text3)">${p.domain}</span>
         </div>
-        <span class="badge badge-live" style="margin-left:auto">${p.status === 'live' ? 'Ativo' : 'Em breve'}</span>
+        <span style="font-size:0.75rem;color:var(--text2)">${doneCount}/${p.monetization.length} ativo</span>
       </div>
-      <div style="display:flex;gap:20px;margin:12px 0 16px">
-        <div><div style="font-size:1.4rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">${fmt.num(p.users)}</div><div style="font-size:0.7rem;color:var(--text3)">Utilizadores</div></div>
-        <div><div style="font-size:1.4rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">${fmt.currency(p.revenue.total)}</div><div style="font-size:0.7rem;color:var(--text3)">Receita</div></div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${p.monetization.map(m => `
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.8rem">
+            <span>${m.icon}</span>
+            <div style="flex:1">
+              <div style="font-weight:600">${m.name}</div>
+              <div style="font-size:0.72rem;color:var(--text3)">${m.desc}</div>
+            </div>
+            <span class="badge ${m.status === 'ativo' ? 'badge-live' : 'badge-soon'}">${m.status === 'ativo' ? 'Ativo' : 'Pendente'}</span>
+          </div>`).join('')}
       </div>`;
-    const sparkCanvas = document.createElement('canvas');
-    sparkCanvas.className = 'chart mini-spark';
-    c.appendChild(sparkCanvas);
     row2.appendChild(c);
-
-    setTimeout(() => {
-      drawLineChart(sparkCanvas, [{ data: sliceData(p.monthly, n), color: '#818CF8' }], getDayLabels(n), { height: 60, noYAxis: true, noGrid: true, noXLabels: true });
-    }, 50);
   });
   main.appendChild(row2);
 
-  // Projects table
-  const tableCard = el('div', 'table-card');
-  tableCard.innerHTML = `
-    <div class="table-card-header">
-      <h3>Todos os Projetos</h3>
-      <span class="table-tag">Comparativo</span>
-    </div>
-    <table class="data-table">
-      <thead><tr>
-        <th>Projeto</th><th>Utilizadores</th><th>Sessões</th>
-        <th>Receita</th><th>Bounce Rate</th><th>Tempo Médio</th><th>Estado</th>
-      </tr></thead>
-      <tbody>
-        ${DATA.projects.map(p => `
-          <tr>
-            <td><div class="project-cell">
-              <div class="project-dot" style="background:${p.color}">${p.icon}</div>
-              <div><strong>${p.name}</strong><span>${p.domain}</span></div>
-            </div></td>
-            <td>${fmt.num(p.users)}</td>
-            <td>${fmt.num(p.sessions)}</td>
-            <td><strong>${fmt.currency(p.revenue.total)}</strong></td>
-            <td>${fmt.pct(p.bounceRate)}</td>
-            <td>${p.avgSession}</td>
-            <td><span class="badge badge-live">Ativo</span></td>
-          </tr>`).join('')}
-      </tbody>
-    </table>`;
-  main.appendChild(tableCard);
+  // ── Gráfico receita (vazio por agora) ─────────────────────────────────────
+  const chartRow = el('div', 'charts-row');
+  const lineCard = el('div', 'chart-card');
+  lineCard.innerHTML = `<div class="chart-title">Receita — Histórico</div><div class="chart-subtitle">Dados reais aparecem aqui assim que configurares monetização</div>`;
+  const lineCanvas = document.createElement('canvas');
+  lineCanvas.className = 'chart';
+  lineCard.appendChild(lineCanvas);
+  chartRow.appendChild(lineCard);
 
-  // Activity feed
-  const actCard = el('div', 'table-card');
-  actCard.innerHTML = `
-    <div class="table-card-header"><h3>Atividade Recente</h3><span class="table-tag">Live</span></div>
-    <div class="activity-feed">
-      <div class="activity-item"><div class="activity-dot green"></div><div class="activity-text">Novo utilizador registado no <strong>BuildAI</strong> (plano Pro)<span> — buildai.fit</span></div><div class="activity-time">há 12m</div></div>
-      <div class="activity-item"><div class="activity-dot blue"></div><div class="activity-text">Clique em afiliado <strong>Namecheap</strong> convertido — €4,20<span> — roniai.online</span></div><div class="activity-time">há 34m</div></div>
-      <div class="activity-item"><div class="activity-dot gold"></div><div class="activity-text">Novo pico de tráfego no <strong>Emergent</strong> — 312 sessões simultâneas<span> — emergent.fit</span></div><div class="activity-time">há 1h</div></div>
-      <div class="activity-item"><div class="activity-dot cyan"></div><div class="activity-text">Receita AdSense do <strong>Emergent</strong> atualizada — +€8,40<span> — emergent.fit</span></div><div class="activity-time">há 3h</div></div>
-      <div class="activity-item"><div class="activity-dot green"></div><div class="activity-text">Apoio Ko-fi recebido — €5,00<span> — ko-fi.com/emergent</span></div><div class="activity-time">há 5h</div></div>
-      <div class="activity-item"><div class="activity-dot blue"></div><div class="activity-text">Deploy automático Cloudflare Pages — <strong>AiNeural</strong> atualizado<span> — aineural.online</span></div><div class="activity-time">há 8h</div></div>
+  const tipCard = el('div', 'chart-card');
+  tipCard.innerHTML = `
+    <div class="chart-title">Potencial de Receita</div>
+    <div class="chart-subtitle">Estimativa com 1.000 utilizadores/mês</div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+      ${[
+        { name: 'AdSense (Emergent)', est: '€15–€40/mês', icon: '📢', color: '#818CF8' },
+        { name: 'Namecheap (Roniai)', est: '€20–€60/mês', icon: '🌐', color: '#06B6D4' },
+        { name: 'BuildAI Pro subs', est: '€50–€200/mês', icon: '💳', color: '#10B981' },
+        { name: 'Ko-fi (Emergent)', est: '€5–€30/mês', icon: '☕', color: '#FF5E5B' },
+        { name: 'Amazon (Emergent)', est: '€10–€25/mês', icon: '📦', color: '#F59E0B' },
+      ].map(r => `
+        <div style="display:flex;align-items:center;gap:10px;font-size:0.82rem">
+          <span>${r.icon}</span>
+          <div style="flex:1;color:var(--text2)">${r.name}</div>
+          <strong style="color:${r.color}">${r.est}</strong>
+        </div>`).join('')}
+      <div style="border-top:1px solid var(--border);padding-top:10px;display:flex;justify-content:space-between;font-size:0.85rem">
+        <strong>Total estimado</strong>
+        <strong style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">€100–€355/mês</strong>
+      </div>
     </div>`;
-  main.appendChild(actCard);
+  chartRow.appendChild(tipCard);
+  main.appendChild(chartRow);
 
-  // Draw charts after DOM is ready
   setTimeout(() => {
-    // Revenue line
-    const labels = getDayLabels(n);
-    drawLineChart(lineCanvas, DATA.projects.map(p => ({
-      data: sliceData(p.revenueMonthly, n),
-      color: p.id === 'emergent' ? '#818CF8' : p.id === 'roniai' ? '#22D3EE' : '#10B981',
-    })), labels, { height: 220, currency: true });
-
-    // Donut
-    const dc = document.getElementById('main-donut');
-    if (dc) drawDonut(dc, donutSegs, { size: 150, bg: '#0f0f1a', centerText: fmt.currency(totalRev), centerSub: 'total' });
+    drawLineChart(lineCanvas, DATA.projects.map((p, i) => ({
+      data: sliceData(p.revenueMonthly, DATA.period),
+      color: ['#818CF8','#22D3EE','#10B981'][i],
+    })), getDayLabels(DATA.period), { height: 220, currency: true });
   }, 60);
 };
 
@@ -578,12 +571,12 @@ Pages.revenue = function() {
   const totalAff = DATA.affiliates.reduce((s, a) => s + a.earned, 0);
   const totalSubs = DATA.projects.reduce((s, p) => s + (p.revenue.subscriptions || 0), 0);
   [
-    { label: 'Receita Total', value: fmt.currency(totalRev), change: '+23%', icon: '💶' },
-    { label: 'Anúncios', value: fmt.currency(totalAds), change: '+12%', icon: '📢' },
-    { label: 'Afiliados', value: fmt.currency(totalAff), change: '+41%', icon: '🔗' },
-    { label: 'Subscrições', value: fmt.currency(totalSubs), change: '+88%', icon: '💳' },
+    { label: 'Receita Total', value: fmt.currency(totalRev), sub: 'Objetivo: €100/mês', icon: '💶' },
+    { label: 'Anúncios', value: fmt.currency(totalAds), sub: 'AdSense pendente', icon: '📢' },
+    { label: 'Afiliados', value: fmt.currency(totalAff), sub: 'Namecheap pendente', icon: '🔗' },
+    { label: 'Subscrições', value: fmt.currency(totalSubs), sub: 'BuildAI planos pagos', icon: '💳' },
   ].forEach(k => {
-    kpiGrid.innerHTML += `<div class="kpi-card"><div class="kpi-icon">${k.icon}</div><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.value}</div><div class="kpi-meta"><span class="kpi-change up">${k.change}</span></div></div>`;
+    kpiGrid.innerHTML += `<div class="kpi-card"><div class="kpi-icon">${k.icon}</div><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.value}</div><div class="kpi-sub" style="margin-top:6px">${k.sub}</div></div>`;
   });
   main.appendChild(kpiGrid);
 
@@ -848,12 +841,12 @@ Pages.affiliate = function() {
   // KPI
   const kpiGrid = el('div', 'kpi-grid');
   [
-    { label: 'Ganhos Afiliados', value: fmt.currency(totalAff), icon: '💶', change: '+41%' },
-    { label: 'Total Cliques', value: fmt.num(totalClicks), icon: '🖱️', change: '+28%' },
-    { label: 'Conversões', value: String(totalConv), icon: '✅', change: '+35%' },
-    { label: 'Taxa Média', value: ((totalConv / totalClicks) * 100).toFixed(1) + '%', icon: '📊', change: '+0.4%' },
+    { label: 'Ganhos Afiliados', value: fmt.currency(totalAff), sub: 'Objetivo: €50/mês', icon: '💶' },
+    { label: 'Total Cliques', value: fmt.num(totalClicks), sub: 'Rastreia com UTMs', icon: '🖱️' },
+    { label: 'Conversões', value: String(totalConv), sub: 'Afiliados confirmados', icon: '✅' },
+    { label: 'Programas Ativos', value: String(DATA.affiliates.filter(a => a.status === 'ativo').length) + '/' + DATA.affiliates.length, sub: 'Ko-fi ativo · Namecheap/Amazon pendentes', icon: '🔗' },
   ].forEach(k => {
-    kpiGrid.innerHTML += `<div class="kpi-card"><div class="kpi-icon">${k.icon}</div><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.value}</div><div class="kpi-meta"><span class="kpi-change up">${k.change}</span></div></div>`;
+    kpiGrid.innerHTML += `<div class="kpi-card"><div class="kpi-icon">${k.icon}</div><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.value}</div><div class="kpi-sub" style="margin-top:6px">${k.sub}</div></div>`;
   });
   main.appendChild(kpiGrid);
 

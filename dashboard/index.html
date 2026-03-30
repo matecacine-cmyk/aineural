@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AiNeural — Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+
+<!-- ─── Login ─────────────────────────────────────────────────────────────── -->
+<div id="login-screen" class="login-screen">
+  <div class="login-box">
+    <div class="login-logo"><span>⬡</span> AI<strong>NEURAL</strong></div>
+    <p class="login-sub">Dashboard de Analytics</p>
+    <div class="login-form">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="login-pass" placeholder="••••••••"
+          onkeydown="if(event.key==='Enter') Auth.login()">
+      </div>
+      <div id="login-error" class="login-error"></div>
+      <button class="btn-login" onclick="Auth.login()">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<aside class="sidebar hidden" id="sidebar">
+  <div class="sidebar-logo">
+    <span>⬡</span> AI<strong>NEURAL</strong>
+  </div>
+  <nav class="sidebar-nav">
+    <a class="nav-item active" data-page="overview"><span>📊</span> Visão Geral</a>
+    <a class="nav-item" data-page="revenue"><span>💶</span> Receita</a>
+    <a class="nav-item" data-page="projects"><span>📋</span> Projetos</a>
+    <a class="nav-item" data-page="traffic"><span>📈</span> Tráfego</a>
+    <a class="nav-item" data-page="affiliate"><span>🔗</span> Afiliados</a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="https://aineural.online" target="_blank" class="btn-back">← Voltar ao site</a>
+  </div>
+</aside>
+
+<div class="main-wrap hidden" id="main-wrap">
+  <header class="dash-header">
+    <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+    <h1 id="page-title">Visão Geral</h1>
+    <div class="header-right">
+      <div class="date-badge" id="date-badge"></div>
+      <div class="period-select">
+        <button class="period-btn active" data-period="30">30d</button>
+        <button class="period-btn" data-period="90">90d</button>
+        <button class="period-btn" data-period="365">1a</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-main" id="dash-main"></main>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

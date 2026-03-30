@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Animated counters
-  animateCounter('count-projects', 2, 1200);
+  animateCounter('count-projects', 3, 1200);
   animateCounter('count-domains', 9, 1500);
   animateCounter('count-users', 1200, 2000, '+');
 
